@@ -1,26 +1,25 @@
-import Image from "next/image";
 import React from "react";
 
 interface Props {
   src: string;
   title: string;
-  description: string;
 }
 
-const ProjectCard = ({ src, title, description }: Props) => {
-  return (
-    <div className="relative overflow-hidden rounded-lg shadow-lg border border-[#2A0E61]">
-      <Image
-        src={src}
-        alt={title}
-        width={1000}
-        height={1000}
-        className="w-full object-contain"
-      />
+const ProjectCard = ({ src, title }: Props) => {
+  const imageSize = { width: "400px", height: "400px" }; // Adjust size as needed
 
-      <div className="relative p-4">
+  return (
+    <div className="relative overflow-hidden rounded-full shadow-lg" style={imageSize}>
+      <div className="rounded-full overflow-hidden">
+        <img
+          src={src}
+          alt={title}
+          className="w-full h-full object-cover rounded-full"
+        />
+      </div>
+
+      <div className="relative p-4 text-center">
         <h1 className="text-2xl font-semibold text-white">{title}</h1>
-        <p className="mt-2 text-gray-300">{description}</p>
       </div>
     </div>
   );
